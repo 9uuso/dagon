@@ -5,7 +5,6 @@ import (
 	"compress/gzip"
 	"fmt"
 	"math/rand"
-
 	"runtime"
 	"time"
 )
@@ -44,6 +43,7 @@ func compression(size int) {
 }
 
 func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
 	fmt.Println("Number of logical cores:", runtime.NumCPU())
 	t0 := time.Now()
 	fibonacci(100000000)
